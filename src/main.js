@@ -2,6 +2,7 @@ import {
   BoxGeometry,
   Mesh,
   MeshBasicMaterial,
+  Object3D,
   PerspectiveCamera,
   Scene,
   WebGLRenderer,
@@ -28,19 +29,21 @@ function main() {
   const matMoonstoneBlue = new MeshBasicMaterial({ color: 0x2b9eb3 });
   const matOrange = new MeshBasicMaterial({ color: 0xfcab10 });
 
+  const cubes = new Object3D();
   const boxGeometry = new BoxGeometry(1, 1, 1);
   const cubeRed = new Mesh(boxGeometry, matImperialRed);
-  scene.add(cubeRed);
+  cubes.add(cubeRed);
   cubeRed.position.set(0, 1.5, 0);
   const cubeGreen = new Mesh(boxGeometry, matJadeGreen);
-  scene.add(cubeGreen);
+  cubes.add(cubeGreen);
   cubeGreen.position.set(1.5, 0, 0);
   const cubeBlue = new Mesh(boxGeometry, matMoonstoneBlue);
-  scene.add(cubeBlue);
+  cubes.add(cubeBlue);
   cubeBlue.position.set(0, -1.5, 0);
   const cubeOrange = new Mesh(boxGeometry, matOrange);
   cubeOrange.position.set(-1.5, 0, 0);
-  scene.add(cubeOrange);
+  cubes.add(cubeOrange);
+  scene.add(cubes);
 
   resizeCanvas(renderer);
   // render scene
@@ -51,5 +54,14 @@ function main() {
   window.addEventListener('resize', () => {
     resizeCanvas(renderer);
   });
+
+  const render = (deltaTime) => {
+    const seconds = deltaTime * 0.001;
+    cubes.rotation.z = seconds;
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+  };
+
+  render();
 }
 window.addEventListener('load', main);
