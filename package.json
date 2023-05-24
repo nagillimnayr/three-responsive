@@ -22,5 +22,8 @@
     "commitizen": {
       "path": "@commitlint/cz-commitlint"
     }
+  },
+  "dependencies": {
+    "three": "^0.152.2"
   }
 }
