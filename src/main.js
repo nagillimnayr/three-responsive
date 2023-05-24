@@ -6,7 +6,7 @@ import {
   Scene,
   WebGLRenderer,
 } from 'three';
-import { resizeCanvas } from './modules/utils/canvas';
+import resizeCanvas from './modules/utils/canvas';
 
 function main() {
   // Create canvas
@@ -45,7 +45,7 @@ function main() {
   cubeOrange.position.set(-1.5, 0, 0);
   scene.add(cubeOrange);
 
-  resizeCanvas(canvas);
+  resizeCanvas(renderer);
   // render scene
   renderer.render(scene, camera);
 

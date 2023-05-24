@@ -1,6 +1,4 @@
-function resizeCanvas(canvas) {
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+export default function resizeCanvas(renderer) {
+  const canvas = renderer.domElement;
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 }
-
-export { resizeCanvas };
