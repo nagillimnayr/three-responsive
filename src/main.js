@@ -9,11 +9,8 @@ import {
 import resizeCanvas from './modules/utils/canvas';
 
 function main() {
-  // Create canvas
-  const canvas = document.createElement('canvas');
-  canvas.id = 'canvas';
-  // attach the canvas to the DOM
-  document.body.appendChild(canvas);
+  // get canvas
+  const canvas = document.querySelector('#canvas');
 
   const renderer = new WebGLRenderer({
     canvas,
@@ -21,7 +18,7 @@ function main() {
   });
 
   const camera = new PerspectiveCamera(75, 2, 0.1, 10);
-  camera.position.z = 2;
+  camera.position.z = 5;
 
   const scene = new Scene();
 
@@ -52,7 +49,7 @@ function main() {
   // when window is resized, resize canvas as well to be
   // in line with it's display size
   window.addEventListener('resize', () => {
-    resizeCanvas(canvas);
+    resizeCanvas(renderer);
   });
 }
 window.addEventListener('load', main);
