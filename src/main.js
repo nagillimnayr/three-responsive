@@ -34,11 +34,15 @@ function main() {
   const boxGeometry = new BoxGeometry(1, 1, 1);
   const cubeRed = new Mesh(boxGeometry, matImperialRed);
   scene.add(cubeRed);
+  cubeRed.position.set(0, 1.5, 0);
   const cubeGreen = new Mesh(boxGeometry, matJadeGreen);
   scene.add(cubeGreen);
+  cubeGreen.position.set(1.5, 0, 0);
   const cubeBlue = new Mesh(boxGeometry, matMoonstoneBlue);
   scene.add(cubeBlue);
+  cubeBlue.position.set(0, -1.5, 0);
   const cubeOrange = new Mesh(boxGeometry, matOrange);
+  cubeOrange.position.set(-1.5, 0, 0);
   scene.add(cubeOrange);
 
   resizeCanvas(canvas);
