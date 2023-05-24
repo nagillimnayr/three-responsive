@@ -1,5 +1,6 @@
 import {
   BoxGeometry,
+  Color,
   Mesh,
   MeshBasicMaterial,
   Object3D,
@@ -17,6 +18,7 @@ function main() {
     canvas,
     antialias: true,
   });
+  renderer.setClearColor(0x2d3047);
 
   const camera = new PerspectiveCamera(75, 2, 0.1, 10);
   camera.position.z = 5;
